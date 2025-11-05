@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vehicle_number_form" model="ir.ui.view">
+        <field name="name">css_hsc.view_vehicle_number_form</field>
+        <field name="model">vehicle.number</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+
+                    <group >
+                        <field name="name"/>
+                        <group>
+                            <field name="vehicle_type" />
+                            <field name="employee_id" string="Choose Employee" invisible="vehicle_type == 'external'" />
+                            <field name="partner_id" string="Choose Vistor" invisible="vehicle_type != 'external'" />
+                        </group>
+                        <group>
+
+                            <field name="driver_name" />
+                            <field name="mobile" />
+
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="data_entry_category_staff" model="entry.log.category">
+        <field name="name">Staff</field>
+        <field name="code">staff</field>
+        <field name="group_idx">1</field>
+    </record>
+    <record id="data_entry_category_vistors" model="entry.log.category">
+        <field name="name">Vistors</field>
+        <field name="code">visitors</field>
+        <field name="group_idx">1</field>
+    </record>
+    <record id="data_entry_category_css_internal" model="entry.log.category">
+        <field name="name">Internal</field>
+        <field name="code">internal</field>
+        <field name="group_idx">2</field>
+    </record>
+    <record id="data_entry_category_labour" model="entry.log.category">
+        <field name="name">Labour</field>
+        <field name="code">labour</field>
+        <field name="group_idx">3</field>
+    </record>
+    <record id="data_entry_category_documents" model="entry.log.category">
+        <field name="name">Documents</field>
+        <field name="code">documents</field>
+        <field name="group_idx">4</field>
+    </record>
+    <record id="data_entry_category_courier" model="entry.log.category">
+        <field name="name">Courier</field>
+        <field name="code">courier</field>
+        <field name="group_idx">4</field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem name="HSC" id="menu_hsc_drive" sequence="20">
+        <menuitem name="Entry Logs" id="menu_hsc_operations" sequence="10">
+            <menuitem id="menu_vehicle_logs" name="Vehicle" action="act_view_vehicle_log" sequence="10" />
+            <menuitem id="menu_walkin_logs" name="Walk In" action="act_view_walkin_log" sequence="20" />
+            <!-- <menuitem id="menu_others_logs" name="Others" action="act_view_others_log" sequence="30" />
+            <menuitem id="menu_shipment_logs" name="Shipment" action="act_view_shipment_log" sequence="40" /> -->
+
+        </menuitem>
+        <menuitem id="menu_vehicle_entry_wizard" name="Vehicle Entry" action="act_vehicle_entry_wizard" sequence="10" />
+
+    </menuitem>
+
+
+</odoo>

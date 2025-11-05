@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.actions.act_window" id="act_view_walkin_log">
+        <field name="name">Walkin Log</field>
+        <field name="res_model">vehicle.log</field>
+        <field name="context">{'default_log_type':'walkin'}</field>
+        <field name="domain">[('log_type','=','walkin')]</field>
+
+    </record>
+
+</odoo>
