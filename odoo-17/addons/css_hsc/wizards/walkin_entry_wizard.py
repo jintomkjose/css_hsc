@@ -4,15 +4,17 @@ from odoo import models, fields, api
 from odoo.exceptions import UserError   # pyright: ignore[reportMissingImports]
 
 
-class VehicleEntryWizard(models.TransientModel):
-    _name = 'vehicle.entry.wizard'
-    _description = 'Vehicle Entry Wizard'
+class walkinwizard(models.TransientModel):
+    _name = 'walkin.entry.wizard'
+    _description = 'Walkin Entry Wizard'
 
-    vehicle_number_id = fields.Many2one('vehicle.number', string='Vehicle Number', required=True)
+    walkin_type = fields.Selection([
+        ('staff', 'staff'),
+        ('visitor', 'visitor'),
+        ('labor', 'labor'),
+    ], string='Walkin Type')
     employee_ids = fields.Many2many('hr.employee', string='Employees')
-    meter_reading = fields.Float(string="Meter Reading")
-    last_km_reading = fields.Integer('Last KM Reading', related='vehicle_number_id.last_km_reading', readonly=True)
-    vehicle_log_id = fields.Many2one('vehicle.log', string='Log')
+   
     
     def submit_vehicle_entry(self):
         self._action_entry()

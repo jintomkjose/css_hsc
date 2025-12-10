@@ -6,8 +6,8 @@
         <field name="code">staff</field>
         <field name="group_idx">1</field>
     </record>
-    <record id="data_entry_category_vistors" model="entry.log.category">
-        <field name="name">Vistors</field>
+    <record id="data_entry_category_visitors" model="entry.log.category">
+        <field name="name">Visitors</field>
         <field name="code">visitors</field>
         <field name="group_idx">1</field>
     </record>

@@ -5,18 +5,16 @@
 
   
     
-    <record id="view_vehicle_entry_wizard_form" model="ir.ui.view">
-        <field name="name">vehicle.entry.wizard.form</field>
-        <field name="model">vehicle.entry.wizard</field>
+    <record id="view_walkin_entry_wizard_form" model="ir.ui.view">
+        <field name="name">walkin.entry.wizard.form</field>
+        <field name="model">walkin.entry.wizard</field>
         <field name="arch" type="xml">
             <form string="Create Entry">
                 <group>
                     <group>
-                        <field name="vehicle_number_id" readonly="vehicle_log_id" />
+                        <field name="walkin_type"  />
                         <field name="employee_ids" widget="many2many_tags" invisible="vehicle_log_id"/> 
-                        <field name="last_km_reading" />
-                        <field name='meter_reading' />
-                        <field name="vehicle_log_id" invisible="1"/>
+                       
                         </group>
                     
                 </group>
@@ -29,11 +27,11 @@
         </field>
         </record>
 
-         <record id="act_vehicle_entry_wizard" model="ir.actions.act_window">
-        <field name="name">Vehicle Entry</field>
-        <field name="res_model">vehicle.entry.wizard</field>
+         <record id="act_walkin_entry_wizard" model="ir.actions.act_window">
+        <field name="name">walkin Entry</field>
+        <field name="res_model">walkin.entry.wizard</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="css_hsc.view_vehicle_entry_wizard_form"/>
+        <field name="view_id" ref="css_hsc.view_walkin_entry_wizard_form"/>
         <field name="target">new</field>
     </record>
 

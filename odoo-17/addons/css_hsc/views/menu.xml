@@ -9,7 +9,12 @@
             <menuitem id="menu_shipment_logs" name="Shipment" action="act_view_shipment_log" sequence="40" /> -->
 
         </menuitem>
-        <menuitem id="menu_vehicle_entry_wizard" name="Vehicle Entry" action="act_vehicle_entry_wizard" sequence="10" />
+        <!-- <menuitem name="Entry Wizard" id="menu_hsc_wizard" sequence="20"> -->
+         <menuitem>
+            <menuitem id="menu_vehicle_entry_wizard" name="Vehicle Entry" action="act_vehicle_entry_wizard" sequence="10" />
+            <menuitem id="menu_walkin_entry_wizard" name="Walkin Entry" action="act_walkin_entry_wizard" sequence="20" />
+        </menuitem>
+
 
     </menuitem>
 

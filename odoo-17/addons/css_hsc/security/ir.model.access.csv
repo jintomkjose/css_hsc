@@ -3,3 +3,4 @@ access_css_hsc_css_hsc,css_hsc,model_vehicle_log,base.group_user,1,1,1,1
 access_vehicle_number,vehicle_number,model_vehicle_number,base.group_user,1,1,1,1
 access_entry_log_category,access_entry_log_category,model_entry_log_category,base.group_user,1,0,0,0
 access_vehicle_entry_wizard,vehicle_entry_wizard,model_vehicle_entry_wizard,base.group_user,1,1,1,1
+access_walkin_entry_wizard,walkin_entry_wizard,model_walkin_entry_wizard,base.group_user,1,1,1,1

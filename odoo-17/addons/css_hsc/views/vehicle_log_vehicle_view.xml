@@ -12,9 +12,11 @@
                 <field name="entry_type" />
                 <field name="vehicle_number_id" />
                 <field name="state" />
+                <field name='entry_log_category_id'/>
                 <!-- <field name="time_in" /> -->
                 <!-- <field name="time_out" /> -->
-
+                <!-- <button string="Check Out" name="action_checkout" type="object" class="btn btn-danger" invisible="state != 'checkout' or  entry_log_category_id != 'internal'" />  -->
+                <button string="Complete" name="action_complete" type="object" class="btn btn-success"/>
             </tree>
         </field>
     </record>
@@ -28,7 +30,7 @@
                 <field name="log_type" invisible="1"/>
                 <field name="category_search" invisible="1"/>
                 <header>
-                    <button name="action_checkin" type="object" string="Check In" invisible="state != 'draft'" class="btn btn-success" />
+                    <!-- <button name="action_checkin" type="object" string="Check In" invisible="state != 'draft'" class="btn btn-success" /> -->
                     <button name="action_checkout" type="object" string="Check Out" invisible="state != 'checkin'" class="btn btn-danger" />
                     <button name="action_cancel" type="object" string="Cancelled" invisible="state not in ['checkin','draft']" class="btn btn-dark"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,checkin,checkout" />
@@ -53,12 +55,12 @@
                             <field name="remarks" required="state == 'checkout'"/>
                             <!-- <field name="entry_type" widget="selection_badge" readonly="state != 'draft'" />                   -->
                         </group>
-                        <!-- <group>
-                        <field name="time_in" readonly="1" invisible="not time_in" />
-                            <field name="time_in_km" invisible="not time_in" readonly="state != 'checkin'" />
-                            <field name="time_out" readonly="1" invisible="not time_out"/>
-                            <field name="time_out_km" invisible="not time_out" readonly="state != 'checkout'" />
-                        </group> -->
+                        <group>
+                            <field name="time_in" />
+                            <field name="time_in_km"  />
+                            <!-- <field name="time_out" /> -->
+                            <field name="time_out_km"  />
+                        </group>
                     </group>
                     <field name="attchment_ids" widget="many2many_binary" />
                     <!-- <notebook>

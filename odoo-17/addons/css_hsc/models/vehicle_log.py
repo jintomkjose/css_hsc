@@ -12,7 +12,15 @@ class VehicleLog(models.Model):
     driver_name = fields.Char('Driver Name')
     mobile = fields.Char('Mobile no')
     attchment_ids = fields.Many2many('ir.attachment', string='Attchments')
+    time_in = fields.Datetime('Entry Time')
     
+    time_out = fields.Datetime('Exit Time')
+    time_in_km = fields.Char('Entry (KM)')
+    time_out_km = fields.Char('Exit (KM)')
+    partner_id = fields.Many2one('res.partner', string='Partner')
+    
+
+
     remarks = fields.Text(string='Remarks')
 
     log_type = fields.Selection([
@@ -67,31 +75,48 @@ class VehicleLog(models.Model):
 
     state = fields.Selection([
         ('draft', 'Draft'),
-        ('checkin', 'Check In'),
-        ('checkout', 'Check Out'),
+        ('checkin', 'Entry'),
+        ('checkout', 'Exit'),
         ('cancelled', 'Cancelled'),
     ], string='Status', default='draft')
 
-    def validate_checkin(self):
-        
-        if self.env['vehicle.log'].search([('vehicle_number_id','=', self.vehicle_number_id.id),('state','=','checkin')]):
-            raise UserError('Vehicle check in alredy exists!!!')
+    
         
         
 
-    def action_checkin(self):
-        self.validate_checkin()
-        self.state = 'checkin'
-        self.time_in = fields.Datetime.now()
+    def _action_log_entry(self):
+        pass
         
-        
+
+    def action_checkout_in(self):
+       
+        return {
+        'type': 'ir.actions.act_window',
+        'res_model': 'vehicle.entry.wizard',
+        'view_mode': 'form',
+        # 'res_id': self.id,
+        'target': 'new',  # opens in popup
+        'context': {
+                'default_vehicle_log_id': self.id,
+                'default_vehicle_number_id': self.vehicle_number_id.id,            
+                    }
+
+    }
+
+    def action_complete(self):
+
+        if self.vehicle_number_id.vehicle_type != 'internal':
+            return self.action_checkout()
+        return self.action_checkout_in()
 
     def action_checkout(self):
         
         self.state = 'checkout'
         self.time_out = fields.Datetime.now()
+        self.vehicle_number_id.last_km_reading=self.time_out_km
+    
         
-        
+
 
     def action_cancel(self):
         if not self.remarks:

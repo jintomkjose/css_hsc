@@ -19,6 +19,11 @@
 
                             <field name="driver_name" />
                             <field name="mobile" />
+                                                     
+                            <field name="meter_reading" readonly="1" />
+                            
+                            
+                            <field name="last_km_reading" readonly="1"/>
 
 
                         </group>
